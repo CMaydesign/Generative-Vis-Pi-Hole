@@ -29,7 +29,7 @@ function setup() {
 }
 
 function draw() {
-    queries = loadStrings('pi-hole-data.txt')
+    queries = loadStrings('../pi-hole-data.txt')
         // print(queries_blocked);
     _radiusnoise += 0.005;
     _radius = (noise(_radiusnoise) * 550) + 1;

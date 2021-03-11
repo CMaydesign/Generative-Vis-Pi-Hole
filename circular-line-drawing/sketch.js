@@ -5,7 +5,7 @@ function setup() {
         height = window.innerHeight;
     createCanvas(width, height);
     smooth();
-    frameRate(20);
+    frameRate(3);
     background(0);
 
 

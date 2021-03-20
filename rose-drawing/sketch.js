@@ -8,14 +8,12 @@ function setup() {
     colorMode(HSB);
     strokeWeight(0.01);
     smooth();
-    frameRate(25);
-    t=300
 }
 
 function draw() {
     queries = loadStrings('../pi-hole-data.txt')
         //print(queries);
-    let blocked = map( 0, 10000, 0, 10);
+    let blocked = map(6500, 0, 10000, 0, 10);
     var k = blocked;
     print(k);
     translate(width / 2, height / 2);

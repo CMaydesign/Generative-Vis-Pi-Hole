@@ -12,15 +12,13 @@ function setup() {
 }
 
 function draw() {
-    queries = loadStrings('../pi-hole-data.txt')
-        // print(queries);
-    let queries_blocked = pi_data.dns_queries_today;
+    let queries_blocked = pi_data.queries;
     print(queries_blocked);
     translate(width / 2, height / 2);
     beginShape();
     for (var i = 0; i < queries_blocked; i++) {
-        var ang = map(i, 0, 200, 0, PI);
-        var rad = 400 * noise(i * 0.01, t * 0.005);
+        var ang = map(i, 0, 180, 0, PI);
+        var rad = 200 * noise(i * 0.01, t * 0.005);
         var x = rad * cos(ang);
         var y = rad * sin(ang);
         curveVertex(x, y);

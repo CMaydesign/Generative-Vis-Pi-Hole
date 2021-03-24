@@ -145,12 +145,12 @@ function draw() {
       particles[i].show();
     }
 
-    if (random(10) > 5 && particles.length < queries_blocked) {
-      let rnd = floor(noise(zoff) * 20);
+    if (random(30) > 5 && particles.length < queries_blocked) {
+      let rnd = floor(noise(zoff) * 50);
       for (let i = 0; i < rnd; i++) {
         particles.push(new Particle());
       }
-    } else if (particles.length > 3000) {
+    } else if (particles.length > 300) {
       let rnd = floor(random(100));
       for (let i = 0; i < rnd; i++) {
         particles.shift();

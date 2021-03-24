@@ -20,10 +20,15 @@ def job():
         pihole = 'Domains Blocked: ' + str(queries) + ' - ' 'DNS-Queries: ' + str(queries) + ' - ' + 'Ads blocked: ' + str(adsblocked) + ' - ' + 'Devices: ' + str(clients)
         print (pihole)
 
+
+        data ={}
+        data['queries']=[]
+        data['queries']
         f = open("pi-hole-data.txt", "w")
         f.write(str(queries))
         f.close()
-
+        with open ('pi-hole-data.txt', 'w') as outfile:
+                json.dump(data)
 schedule.every(30).seconds.do(job)
 
 while 1:

@@ -13,12 +13,15 @@ var flowcolorfield;
 var magOff = 0;
 var showField = false;
 
+
 function setup() {
   createCanvas(800, 350);
   pixelDensity(1);
   cols = floor(width / scl);
   rows = floor(height / scl);
   background(0);
+  let JSON = ('../pi-hole-data.json');
+  pi_data = loadJSON(JSON);
 
   for (let i = 0; i < numParticles; i++) {
     particles[i] = new Particle();
@@ -89,6 +92,8 @@ function Particle() {
 }
 
 function draw() {
+  let queries_blocked = pi_data.queries;
+
   if (showField) {
     background(0);
   } else {
@@ -130,7 +135,7 @@ function draw() {
   magOff += magInc;
   zoff += incStart;
   start -= magInc;
-
+  print(queries_blocked)
   if (!showField) {
     for (let i = 0; i < particles.length; i++) {
       particles[i].follow(flowfield, flowcolorfield);
@@ -139,7 +144,7 @@ function draw() {
       particles[i].show();
     }
 
-    if (random(10) > 5 && particles.length < 2500) {
+    if (random(10) > 5 && particles.length < queries_blocked) {
       let rnd = floor(noise(zoff) * 20);
       for (let i = 0; i < rnd; i++) {
         particles.push(new Particle());

@@ -21,14 +21,18 @@ def job():
         print (pihole)
 
 
-        data ={}
-        data['queries']=[]
-        data['queries']
-        f = open("pi-hole-data.txt", "w")
-        f.write(str(queries))
-        f.close()
-        with open ('pi-hole-data.txt', 'w') as outfile:
-                json.dump(data)
+        # data ={}
+        # data['queries']=[]
+        # data['queries']
+        data = {"queries": [queries]}
+        print(queries)
+        # f = open("pi-hole-data.txt", "w")
+        # f.write(str(queries))
+        # f.close()
+
+
+        with open ('pi-hole-data.json', 'w') as outfile:
+                json.dump(data, outfile)
 schedule.every(30).seconds.do(job)
 
 while 1:
